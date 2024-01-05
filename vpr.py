@@ -113,3 +113,48 @@
 #         break
 
 # EX.4 program for managing a library catalog
+
+class Book:
+    def __init__(self, title, author, isbn, copies_available):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.copies_available = copies_available
+
+    # Borrowing the book
+    def checkin(self):
+        if self.copies_available >= 0:
+            print(f"Book '{self.title}' checked out")
+            self.copies_available -= 1
+        else:
+            print("The book is not available")
+    
+    # Returning the book
+    def checkout(self):
+        print(f"Book {self.title} is returned")
+        self.copies_available += 1
+
+    def display_info(self):
+        print(self.title)
+        print(self.author)
+        print(self.isbn)
+        print(self.copies_available)
+
+library_catalog = {}
+
+# Allow the user to add books
+while True:
+    add_book = input("Would you like to add a new book")   
+    if add_book =="yes":
+        title = input("Enter a book Title: ")
+        author = input("Enter an Author Name: ")
+        isbn = input("Enter a isbn: ")
+        copies_available = int(input("Enter the available copies of the book: "))
+
+        new_book = Book(title, author, isbn, copies_available)
+        library_catalog[isbn] = new_book
+    else:
+        print("Library Catalog")
+        for isbn, book in library_catalog.items():
+            book.display_info()
+        break
