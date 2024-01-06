@@ -142,10 +142,12 @@ class Book:
 
 library_catalog = {}
 
+print("Welcome to the Python book library. \n You can check in or check out a book which you want or you ca add a new book in the library.")   
+
 # Allow the user to add books
 while True:
-    add_book = input("Would you like to add a new book")   
-    if add_book =="yes":
+    options = input("1. For adding a new book type 'add' \n2. For a checkin of a book type 'checkin' \n3. For a checkout of a book type 'checkout' \n4. If you are ready type 'exit' \n").lower() 
+    if options =="add":
         title = input("Enter a book Title: ")
         author = input("Enter an Author Name: ")
         isbn = input("Enter a isbn: ")
@@ -153,8 +155,25 @@ while True:
 
         new_book = Book(title, author, isbn, copies_available)
         library_catalog[isbn] = new_book
-    else:
+
+    elif options =="checkin":
+        isbn = input("Type the ISBN of the book which you want, that will be checked for availability: ").lower()
+        if isbn in library_catalog:
+            library_catalog[isbn].checkin()
+        else:
+            print("Your book is not available")
+
+    elif options =="checkout":
+        isbn = input("Type the ISBN of the book which you want to return: ").lower()
+        if isbn in library_catalog:
+            library_catalog[isbn].checkout()
+        else:
+            print("Your book is not available")
+
+    elif options =="exit":
         print("Library Catalog")
         for isbn, book in library_catalog.items():
             book.display_info()
         break
+    else:
+        print("Invalid option. Please try again.")
