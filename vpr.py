@@ -114,66 +114,87 @@
 
 # EX.4 program for managing a library catalog
 
-class Book:
-    def __init__(self, title, author, isbn, copies_available):
-        self.title = title
-        self.author = author
-        self.isbn = isbn
-        self.copies_available = copies_available
+# class Book:
+#     def __init__(self, title, author, isbn, copies_available):
+#         self.title = title
+#         self.author = author
+#         self.isbn = isbn
+#         self.copies_available = copies_available
 
-    # Borrowing the book
-    def checkin(self):
-        if self.copies_available >= 0:
-            print(f"Book '{self.title}' checked out")
-            self.copies_available -= 1
-        else:
-            print("The book is not available")
+#     # Borrowing the book
+#     def checkin(self):
+#         if self.copies_available >= 0:
+#             print(f"Book '{self.title}' checked out")
+#             self.copies_available -= 1
+#         else:
+#             print("The book is not available")
     
-    # Returning the book
-    def checkout(self):
-        print(f"Book {self.title} is returned")
-        self.copies_available += 1
+#     # Returning the book
+#     def checkout(self):
+#         print(f"Book {self.title} is returned")
+#         self.copies_available += 1
 
-    def display_info(self):
-        print(self.title)
-        print(self.author)
-        print(self.isbn)
-        print(self.copies_available)
+#     def display_info(self):
+#         print(self.title)
+#         print(self.author)
+#         print(self.isbn)
+#         print(self.copies_available)
 
-library_catalog = {}
+# library_catalog = {}
 
-print("Welcome to the Python book library. \n You can check in or check out a book which you want or you ca add a new book in the library.")   
+# print("Welcome to the Python book library. \n You can check in or check out a book which you want or you ca add a new book in the library.")   
 
-# Allow the user to add books
+# # Allow the user to add books
+# while True:
+#     options = input("1. For adding a new book type 'add' \n2. For a checkin of a book type 'checkin' \n3. For a checkout of a book type 'checkout' \n4. If you are ready type 'exit' \n").lower() 
+#     if options =="add":
+#         title = input("Enter a book Title: ")
+#         author = input("Enter an Author Name: ")
+#         isbn = input("Enter a isbn: ")
+#         copies_available = int(input("Enter the available copies of the book: "))
+
+#         new_book = Book(title, author, isbn, copies_available)
+#         library_catalog[isbn] = new_book
+
+#     elif options =="checkin":
+#         isbn = input("Type the ISBN of the book which you want, that will be checked for availability: ").lower()
+#         if isbn in library_catalog:
+#             library_catalog[isbn].checkin()
+#         else:
+#             print("Your book is not available")
+
+#     elif options =="checkout":
+#         isbn = input("Type the ISBN of the book which you want to return: ").lower()
+#         if isbn in library_catalog:
+#             library_catalog[isbn].checkout()
+#         else:
+#             print("Your book is not available")
+
+#     elif options =="exit":
+#         print("Library Catalog")
+#         for isbn, book in library_catalog.items():
+#             book.display_info()
+#         break
+#     else:
+#         print("Invalid option. Please try again.")
+
+# EX.5 Implement a program using a while loop that continuously prompts the user for input. 
+#      If the entered number is positive, add it to list1. If the entered number is negative, add its absolute value to list2. 
+#      Terminate the loop when the user enters 0.
+
+# positive nums
+list1 = []
+# negative nums
+list2 = []
+
 while True:
-    options = input("1. For adding a new book type 'add' \n2. For a checkin of a book type 'checkin' \n3. For a checkout of a book type 'checkout' \n4. If you are ready type 'exit' \n").lower() 
-    if options =="add":
-        title = input("Enter a book Title: ")
-        author = input("Enter an Author Name: ")
-        isbn = input("Enter a isbn: ")
-        copies_available = int(input("Enter the available copies of the book: "))
-
-        new_book = Book(title, author, isbn, copies_available)
-        library_catalog[isbn] = new_book
-
-    elif options =="checkin":
-        isbn = input("Type the ISBN of the book which you want, that will be checked for availability: ").lower()
-        if isbn in library_catalog:
-            library_catalog[isbn].checkin()
-        else:
-            print("Your book is not available")
-
-    elif options =="checkout":
-        isbn = input("Type the ISBN of the book which you want to return: ").lower()
-        if isbn in library_catalog:
-            library_catalog[isbn].checkout()
-        else:
-            print("Your book is not available")
-
-    elif options =="exit":
-        print("Library Catalog")
-        for isbn, book in library_catalog.items():
-            book.display_info()
+    number = int(input("Enter a number different from 0. To exit the program type 0: "))
+    if number > 0:
+        list1.append(number)
+    elif number < 0:
+        list2.append(number)
+    elif number == 0:
+        print(f"Here are the positive numbers: {list1} \n Here are the negative numbers: {list2}")
         break
     else:
-        print("Invalid option. Please try again.")
+        print("Please enter a valid number!")
