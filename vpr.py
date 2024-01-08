@@ -1,7 +1,7 @@
 # EX.1
 
 # list1=[]
-# list2=[]
+# list1_1=[]
 
 # while True:
 #     numbers = int(input("Въведете числа "))
@@ -10,14 +10,14 @@
 #     if numbers % 3 == 0 and numbers % 2 == 0:
 #         list1.append(numbers)
 #     if numbers % 7 ==0 and numbers % 2 != 0:
-#         list2.append(numbers)
+#         list1_1.append(numbers)
 
 # sum_list1 = sum(list1[2::2])
 # print ("Сумата на четните елементи в първата листа е равна на ", sum_list1)
 
-# sortedlist2 = sorted(list2, reverse=True)
-# product_list2 = list2[0] * list2[-1]
-# print ("Произвведението на най-голямото и най-малкото число е равно на ", product_list2)
+# sortedlist1_1 = sorted(list1_1, reverse=True)
+# product_list1_1 = list1_1[0] * list1_1[-1]
+# print ("Произвведението на най-голямото и най-малкото число е равно на ", product_list1_1)
 
 # EX.2
 # class Product:
@@ -179,22 +179,147 @@
 #         print("Invalid option. Please try again.")
 
 # EX.5 Implement a program using a while loop that continuously prompts the user for input. 
-#      If the entered number is positive, add it to list1. If the entered number is negative, add its absolute value to list2. 
+#      If the entered number is positive, add it to list1. If the entered number is negative, add its absolute value to list1_1. 
 #      Terminate the loop when the user enters 0.
 
-# positive nums
-list1 = []
-# negative nums
-list2 = []
+# # positive nums
+# list1 = []
+# # negative nums
+# list1_1 = []
 
-while True:
-    number = int(input("Enter a number different from 0. To exit the program type 0: "))
-    if number > 0:
-        list1.append(number)
-    elif number < 0:
-        list2.append(number)
-    elif number == 0:
-        print(f"Here are the positive numbers: {list1} \n Here are the negative numbers: {list2}")
-        break
-    else:
-        print("Please enter a valid number!")
+# while True:
+#     number = int(input("Enter a number different from 0. To exit the program type 0: "))
+#     if number > 0:
+#         list1.append(number)
+#     elif number < 0:
+#         list1_1.append(number)
+#     elif number == 0:
+#         print(f"Here are the positive numbers: {list1} \n Here are the negative numbers: {list1_1}")
+#         break
+#     else:
+#         print("Please enter a valid number!")
+
+# EX.6
+# import random
+# import math
+
+# list1 = []
+# list1_1 = []
+
+# a=0
+# b=-1
+# c=0
+# n = int(input("Type the N-number of the numbers in the list: "))
+# if n >= 20 and n <= 30:
+#     while a < n:
+#         list1.append(random.randint(-100,100))
+#         a += 1
+# else:
+#     print("The N must be between 20 and 30")
+
+# while b < len(list1) - 1:
+#     list1_1.append(list1[b])
+#     b += 2
+
+# # num % 10 takes the last digit of the number
+# count_units = sum(1 for num in list1 if (num % 10) % 2 == 0)
+
+# negative_nums_sum = math.prod(num for num in list1 if num < 0 and num % 2 ==0)
+
+# list1.sort(reverse=True)
+
+# print(sum(list1_1))
+# print(count_units)
+# print(negative_nums_sum)
+# print(list1)
+
+# list2 = [i for i in list1 if i>n]
+# difference = list2[0] - list2[-1]
+
+
+# print(difference)
+
+# odd_count = 0
+# while c < len(list2):
+#     if list2[c] % 2 != 0:
+#         print(f"{list2[c]} is odd")
+#         odd_count += 1
+#     c += 1
+
+# print(odd_count)
+
+# list2.pop(0)
+# print(list2)
+
+# EX. 6
+
+# class Car:
+#     def __init__(self, car_brand, car_model, car_price, car_color, manufacture_year):
+#         self.car_brand = car_brand
+#         self.car_model = car_model
+#         self.car_price = car_price
+#         self.car_color = car_color
+#         self.manufacture_year = manufacture_year
+        
+#     def display_info(self):
+#         print("Brand: ", self.car_brand)
+#         print("Model: ", self.car_model)
+#         print("Price: ", self.car_price)
+#         print("Color: ", self.car_color)
+#         print("Manufactured Year: ", self.manufacture_year)
+
+# car1 = Car(car_brand="Toyota", car_model="Camry", car_price=25000, car_color="Blue", manufacture_year=2022)
+# car2 = Car(car_brand="Honda", car_model="Civic", car_price=22000, car_color="Yellow", manufacture_year=2021)
+# car3 = Car(car_brand="Ford", car_model="Mustang", car_price=35000, car_color="Yellow", manufacture_year=2020)
+# car4 = Car(car_brand="Tesla", car_model="Model 3", car_price=45000, car_color="Silver", manufacture_year=2023)
+# car5 = Car(car_brand="Chevrolet", car_model="Silverado", car_price=40000, car_color="Yellow", manufacture_year=2021)
+# car6 = Car(car_brand="BMW", car_model="X5", car_price=60000, car_color="White", manufacture_year=2022)
+# car7 = Car(car_brand="Audi", car_model="A4", car_price=42000, car_color="Gray", manufacture_year=2020)
+
+# list1 = [car1, car2, car3, car4, car5, car6, car7]
+
+# def sort_price():
+#     list1.sort(key=lambda x: x.car_price, reverse=True)
+#     for car in list1:
+#         car.display_info()
+
+# def list_by_brand():
+#     brand = input("Type the brand you are searching for: ")
+#     for car in list1:
+#         if car.car_brand == brand:
+#             car.display_info()
+#         else:
+#             print("There is no such Brand")
+
+# def search_color():
+#     most_expensive_car = None
+#     color = input("What color of the most expensive car do you want to find? ")
+#     for car in list1:
+#         if car.car_color == color:
+#             if most_expensive_car is None or car.car_price > most_expensive_car.car_price:
+#                 most_expensive_car = car
+#     if most_expensive_car is not None:
+#         print(most_expensive_car.display_info())
+#     else:
+#         print("No cars with that color were found.")
+
+# def newest_car():
+#     newest_car = None
+#     for car in list1:
+#         if car.manufacture_year >= 2021:
+#             if newest_car is None or car.manufacture_year > newest_car.manufacture_year:
+#                 newest_car = car
+#     newest_car.display_info()
+
+# def newest_cars():
+#     list2 = [f"{car.car_brand}, {car.car_model}, {car.car_price}, {car.car_color}, {car.manufacture_year }" for car in list1 if car.manufacture_year >= 2021]
+#     print(list2)
+
+# sort_price()
+# list_by_brand()
+# search_color()
+# newest_car()
+# newest_cars()
+
+
+
